@@ -3,15 +3,19 @@ import styled from 'styled-components'
 import Octicon from 'react-octicon'
 import Search from './Search';
 
-function Header() {
+
+//destructured onSearch method and passed it in Search component
+
+function Header({ onSearch }) {
   return (
     <Wrapper>
-      <Octicon name="mark-github" mega/>
-      <Search />
+      <Octicon name="mark-github" mega />
+      <Search onSearch={onSearch} />
     </Wrapper>
-  )
+  );
 }
 
+//Component styles
 const Wrapper = styled.div`
   background-color: #24292e;
   color: #ffffff;

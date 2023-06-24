@@ -2,17 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 import Octicon from 'react-octicon'
 
-const Search = () => {
+//destructured onSearch method 
+
+const Search = ({ onSearch }) => {
+
+  //Method to get input text and passed it in onSearch method
+  const handleSearch = (e) => {
+    onSearch(e.target.value);
+  };
+
   return (
     <Wrapper>
       <InputBox>
-      <Octicon name="search" />
-      <Input placeholder="Search Gists for the username"/>
+        <Octicon name="search" />
+        <Input
+          name='search'
+          type='text'
+          placeholder="Search Gists for the username"
+          onChange={handleSearch}
+        />
       </InputBox>
     </Wrapper>
-  )
-}
+  );
+};
 
+//Component Styles
 const Wrapper = styled.div`
   padding: 8px;
   background-color: #ffffff;
